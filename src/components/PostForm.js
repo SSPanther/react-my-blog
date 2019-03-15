@@ -5,8 +5,10 @@ export default class PostForm extends React.Component {
   constructor(props) {
     super(props);
 
+    //console.log(props.onSubmit);
+
     this.state = {
-      editMode: props.post ? true : false,
+      mode: props.mode ? props.mode : 'readonly',
       title: props.post ? props.post.title : '',
       body: props.post ? props.post.body : '',
       createdAt: props.post ? moment(props.post.createdAt) : moment()
@@ -64,15 +66,17 @@ export default class PostForm extends React.Component {
             />
             <div className="input-group">
               <div className="input-group__item">
-                <button 
-                  className="button" 
-                  onClick={this.onSubmit}
-                >
-                  Save Post
-                </button>
+                {(this.state.mode !== 'readonly') &&
+                  <button 
+                    className="button" 
+                    onClick={this.onSubmit}
+                  >
+                    Save Post
+                  </button>
+                }
               </div>
               <div className="input-group__item">
-                {this.state.editMode &&
+                {(this.state.mode === 'edit') &&
                   <button 
                     className="button button--secondary"
                     onClick={this.onRemove}

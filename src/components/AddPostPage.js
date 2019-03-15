@@ -18,7 +18,10 @@ export class AddPostPage extends React.Component {
           </div>
         </div>
         <div className="content-container">
-          <PostForm onSubmit={this.onSubmit}/>
+          <PostForm 
+            mode='add'
+            onSubmit={this.onSubmit}
+          />
         </div>
       </div>
     );

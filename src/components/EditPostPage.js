@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import PostForm from './PostForm';
 import { startEditPost, startRemovePost } from '../actions/posts';
 
@@ -15,6 +16,13 @@ export class EditPostPage extends React.Component {
   }
 
   render() {
+    // console.log(this.props);
+    // console.log(window.location.hostname);
+    // console.log(window.location.href);
+
+    const readableUrl = window.location.href.replace("edit", "read");
+    const readableRoute = `/read/${this.props.post.id}`;
+
     return (
         <div>
             <div className="page-header">
@@ -23,13 +31,19 @@ export class EditPostPage extends React.Component {
                 </div>
             </div>
             <div className="content-container">
+                <div className="link">
+                    <Link 
+                        to={readableRoute}>Post readable at {readableUrl}
+                    </Link>
+                </div>
                 <PostForm 
-                    post={this.props.post}
+                    post={this.props.post} 
+                    mode={'edit'}
                     onSubmit={this.onSubmit}
                     onRemove={this.onRemove}
                 />
             </div>
-      </div>
+        </div>
     );
   }
 } 
