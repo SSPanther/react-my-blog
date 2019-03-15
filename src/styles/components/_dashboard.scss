@@ -1,0 +1,29 @@
+.dashboard-top {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: $s-size 0;
+
+    @media (min-width: $desktop-breakpoint) {
+      flex-direction: row;
+      margin: $m-size 0;
+    }
+}
+
+.dashboard-list {
+    margin: 0 0 $xs-size 0;
+
+    @media (min-width: $desktop-breakpoint) {
+        flex-direction: row;
+        margin: $m-size 0;
+      }
+}
+
+.dashboard-bottom {
+    margin: 0 0 $xs-size 0;
+
+    @media (min-width: $desktop-breakpoint) {
+        flex-direction: row;
+        margin: $l-size 0;
+      }
+}

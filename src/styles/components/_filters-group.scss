@@ -1,0 +1,10 @@
+.filters-group {
+    @extend .input-group;
+    
+    margin: $xs-size 0;
+
+    @media (min-width: $desktop-breakpoint) {
+        flex-direction: row;
+        margin: $m-size 0;
+    }
+}
