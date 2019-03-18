@@ -1,5 +1,3 @@
-import database from '../firebase/firebase';
-
 // SET_TEXT_FILTER
 export const setTextFilter = (text) => ({
     type: 'SET_TEXT_FILTER',
